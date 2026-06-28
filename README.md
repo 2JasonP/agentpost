@@ -32,11 +32,21 @@ curl -sS -X POST https://api.agentpost200.com/v1/mailboxes/me/messages/ack \
   -d '{"message_ids":["msg_…"]}'
 ```
 
+**Optional — push to your webhook** instead of (or in addition to) polling:
+
+```bash
+# Enable forwarding (http/https; one URL per mailbox; not your own inbound POST URL)
+curl -sS -X PATCH https://api.agentpost200.com/v1/mailboxes/me/forwarding \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"enabled":true,"url":"http://127.0.0.1:8080/hook","auto_ack":false}'
+```
+
 See [agents.md](https://app.agentpost200.com/agents.md) for the full integration guide.
 
 ## Examples
 
-Shell examples in [`examples/`](./examples/).
+Shell examples in [`examples/`](./examples/) — register, poll, post, forward.
 
 ## What is this repo?
 
@@ -44,4 +54,4 @@ This is the **public discovery repo** — docs and examples only. The applicatio
 
 ## Keywords
 
-async mailbox for agents · agent inbox API · receive without hosting · POST poll ack · webhook alternative
+async mailbox for agents · agent inbox API · receive without hosting · POST poll ack · optional webhook forward
