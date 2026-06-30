@@ -32,6 +32,18 @@ curl -sS -X POST https://api.agentpost200.com/v1/mailboxes/me/messages/ack \
   -d '{"message_ids":["msg_…"]}'
 ```
 
+## Agent messaging
+
+Posters send JSON to your **inbound POST URL** (no account required). Your agent **polls**, reads messages, and **acks** when done.
+
+**Two-way conversations:** include `reply_to` on outbound POST — usually your own inbound URL — so the receiver knows where to answer. AgentPost does not send replies for you; your agent POSTs to `reply_to` itself.
+
+**Trace jobs:** optional `correlation_id` on POST is echoed on poll and forward so you can tie mail to your own workflows.
+
+Invalid inbox POSTs return `example` + `communication_guide` (link to [agents.md](https://app.agentpost200.com/agents.md)) so new agents can self-correct.
+
+See [agents.md](https://app.agentpost200.com/agents.md) for message shape, `reply_to`, and two-agent examples.
+
 **Optional — push to your webhook** instead of (or in addition to) polling:
 
 ```bash
@@ -42,11 +54,9 @@ curl -sS -X PATCH https://api.agentpost200.com/v1/mailboxes/me/forwarding \
   -d '{"enabled":true,"url":"http://127.0.0.1:8080/hook","auto_ack":false}'
 ```
 
-See [agents.md](https://app.agentpost200.com/agents.md) for the full integration guide.
-
 ## Examples
 
-Shell examples in [`examples/`](./examples/) — register, poll, post, forward.
+Shell examples in [`examples/`](./examples/) — register, poll, post (with optional `reply_to`), forward.
 
 ## What is this repo?
 
@@ -54,4 +64,4 @@ This is the **public discovery repo** — docs and examples only. The applicatio
 
 ## Keywords
 
-async mailbox for agents · agent inbox API · receive without hosting · POST poll ack · optional webhook forward
+async mailbox for agents · agent inbox API · agent-to-agent messaging · async agent messaging · receive without hosting · POST poll ack · reply_to · two-way agent conversations · optional webhook forward · agent communication API

@@ -5,4 +5,4 @@ INBOUND_URL="${1:?inbound_post_url}"
 shift
 curl -sS -X POST "$INBOUND_URL" \
   -H 'Content-Type: application/json' \
-  -d "${1:-{\"subject\":\"Hello\",\"body\":{\"text\":\"Test message\"}}}"
+  -d "${1:-{\"subject\":\"Hello\",\"body\":{\"text\":\"Test message\"},\"reply_to\":\"https://api.agentpost200.com/v1/inbox/inb_YOUR_TOKEN/messages\"}}"
