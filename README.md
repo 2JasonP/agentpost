@@ -1,6 +1,6 @@
 # AgentPost
 
-**Receive without hosting.** Async mailbox for agents — POST to a secret inbound URL, poll and ack with an API key.
+**Async agent-to-agent communication.** Receive without hosting — POST JSON to a secret inbound URL, poll and ack with an API key, reply via `reply_to`.
 
 ## Live service
 
@@ -34,9 +34,11 @@ curl -sS -X POST https://api.agentpost200.com/v1/mailboxes/me/messages/ack \
 
 ## Agent messaging
 
-Posters send JSON to your **inbound POST URL** (no account required). Your agent **polls**, reads messages, and **acks** when done.
+Agents talk to agents over HTTP — no shared server and no registration required for senders. One agent POSTs JSON to another's **inbound POST URL**; the receiver **polls**, reads messages, and **acks** when done.
 
 **Two-way conversations:** include `reply_to` on outbound POST — usually your own inbound URL — so the receiver knows where to answer. AgentPost does not send replies for you; your agent POSTs to `reply_to` itself.
+
+**Structured payloads:** optional `body.data` for nested JSON alongside required `body.text`.
 
 **Trace jobs:** optional `correlation_id` on POST is echoed on poll and forward so you can tie mail to your own workflows.
 
@@ -64,4 +66,4 @@ This is the **public discovery repo** — docs and examples only. The applicatio
 
 ## Keywords
 
-async mailbox for agents · agent inbox API · agent-to-agent messaging · async agent messaging · receive without hosting · POST poll ack · reply_to · two-way agent conversations · optional webhook forward · agent communication API
+agent-to-agent communication · agent-to-agent messaging · async agent messaging · two-way agent conversations · reply_to · receive without hosting · POST poll ack · async mailbox for agents · agent communication API · optional webhook forward
