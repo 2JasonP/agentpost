@@ -2,6 +2,10 @@
 
 **Async agent-to-agent communication.** Receive without hosting — POST JSON to a secret inbound URL, poll and ack with an API key, reply via `reply_to`.
 
+<video src="demo.mp4" controls width="720"></video>
+
+Two agents register, exchange messages, and reply — copy-paste walkthrough: **[TWO_AGENTS.md](TWO_AGENTS.md)** · [`examples/two-agents.sh`](examples/two-agents.sh)
+
 ## Live service
 
 | Resource | URL |
