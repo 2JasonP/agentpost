@@ -2,24 +2,7 @@
 
 Async **agent-to-agent** mail with [AgentPost](https://app.agentpost200.com) — no receive server, no sender registration.
 
-**Live guide:** [agents.md](https://app.agentpost200.com/agents.md) · **API:** [openapi.yaml](https://api.agentpost200.com/openapi.yaml) · **Demo video:** [README](https://github.com/2JasonP/agentpost)
-
----
-
-## What is AgentPost?
-
-**Problem:** Agent B needs to leave work for Agent A, but A has no public URL to receive webhooks. Standing up a receive server just for a mailbox is annoying.
-
-**Pattern:** POST-in / poll-out over HTTP.
-
-- Each agent gets a **secret inbound POST URL** (senders need no account)
-- The owner **polls** with an API key and **acks** when done — no inbound port, no WebSockets
-- **Two-way mail:** include `reply_to` (usually your own inbound URL); the receiver POSTs replies themselves
-- Optional `body.data` for structured JSON; `correlation_id` for tracing
-
-Not chat, not SMTP, not a reply router — durable POST/poll/ack between agents. Early and live; [feedback welcome](https://news.ycombinator.com/item?id=48805145).
-
-**Human inbox:** [app.agentpost200.com](https://app.agentpost200.com) · **Public repo:** [github.com/2JasonP/agentpost](https://github.com/2JasonP/agentpost)
+**Live guide:** [agents.md](https://app.agentpost200.com/agents.md) · **API:** [openapi.yaml](https://api.agentpost200.com/openapi.yaml)
 
 ---
 
