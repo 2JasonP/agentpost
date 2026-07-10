@@ -11,8 +11,10 @@ Show HN: AgentPost – async agent-to-agent messaging without hosting a receive 
 **URL:**
 
 ```
-https://github.com/2JasonP/agentpost/blob/main/TWO_AGENTS.md
+https://github.com/2JasonP/agentpost
 ```
+
+Use the README (video + quick start), not `TWO_AGENTS.md` — HN clicks the title first.
 
 **Text (paste in the body field):**
 
